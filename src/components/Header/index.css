@@ -1,0 +1,119 @@
+.header-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #0097a7;
+  padding: 10px;
+  background-size: cover;
+  width: 100%;
+}
+.logo-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.logo-image {
+  height: 70px;
+  width: 70px;
+}
+.logo-title {
+  font-family: 'Roboto';
+  font-size: 24px;
+  color: #ffffff;
+  margin-top: 25px;
+}
+.search-container {
+  width: 40%;
+  background-color: transparent;
+  border: 1px solid #ffffff;
+  padding: 0px;
+}
+.search-btn {
+  background-color: transparent;
+  border-top: none;
+  border-bottom: none;
+  border-right: 1px solid #ffffff;
+  border-left: none;
+  height: 100%;
+  padding: 10px;
+  width: 20%;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: 'Roboto';
+  font-size: 14px;
+  margin-top: 0px;
+}
+.search-bar {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  width: 80%;
+  color: #ffffff;
+  font-family: 'Roboto';
+  font-size: 16px;
+  height: 100%;
+  padding: 7px;
+  margin-top: 0px;
+}
+.menu-btn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+.menu-container {
+  background-color: transparent;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 0px;
+  list-style-type: none;
+  width: 25%;
+  margin-right: 10px;
+}
+.menu-item {
+  color: #ffffff;
+  font-size: 14px;
+}
+.link-style {
+  text-decoration: none;
+  outline: none;
+}
+@media (max-width: 768px) {
+  .header-container {
+    padding: 6px;
+  }
+  .logo-container {
+    width: 10%;
+  }
+  .logo-image {
+    display: none;
+  }
+  .logo-title {
+    font-size: 12px;
+    margin-top: 10px;
+  }
+  .search-container {
+    width: 40%;
+  }
+  .search-btn {
+    font-size: 10px;
+    width: 40%;
+    padding: 5px;
+  }
+  .search-bar {
+    font-size: 8px;
+    width: 60%;
+  }
+  .menu-container {
+    width: 40%;
+    margin-right: 0px;
+  }
+  .menu-item {
+    font-size: 10px;
+    flex-wrap: wrap;
+    margin-left: 5px;
+  }
+}

@@ -1,0 +1,60 @@
+.poster-item {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
+}
+.poster-image {
+  height: 400px;
+  width: 300px;
+  background-size: cover;
+  margin-bottom: 15px;
+}
+.movie-image {
+  height: 70px;
+  width: 90px;
+}
+.movie-name {
+  font-family: 'Roboto';
+  color: #0d47a1;
+  font-size: 22px;
+  flex-wrap: wrap;
+}
+.rating-text {
+  font-family: 'Roboto';
+  color: #0d47a1;
+  font-size: 22px;
+  margin-top: 0px;
+  font-weight: 600;
+}
+.view-details-btn {
+  background-color: #006064;
+  color: #ffffff;
+  font-family: 'Roboto';
+  border: none;
+  padding: 10px;
+  width: 130px;
+  font-size: 18px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+@media screen and (max-width: 768px) {
+  .poster-image {
+    height: 150px;
+    width: 90px;
+  }
+  .movie-image {
+    height: 30px;
+    width: 40px;
+  }
+  .movie-name {
+    font-size: 10px;
+  }
+  .rating-text {
+    font-size: 10px;
+  }
+  .view-details-btn {
+    font-size: 10px;
+    width: 80px;
+    padding: 7px;
+  }
+}
