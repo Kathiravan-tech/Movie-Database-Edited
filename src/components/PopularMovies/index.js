@@ -29,6 +29,7 @@ class PopularMovies extends Component {
         releasedDate: eachData.release_date,
         rating: eachData.vote_average,
         poster_path: eachData.poster_path,
+        backdrop_path: eachData.backdrop_path,
       }))
       this.setState({moviesList: updatedData, isLoading: false})
     } else {
