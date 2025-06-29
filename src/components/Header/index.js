@@ -18,14 +18,14 @@ const Header = props => {
     if (response.ok) {
       const fetchedData = await response.json()
       const updatedData = fetchedData.results.map(eachData => ({
-        movieImage: eachData.backdrop_path,
         id: eachData.id,
         title: eachData.original_title,
         overview: eachData.overview,
         releasedDate: eachData.release_date,
         rating: eachData.vote_average,
-        moviePoster: eachData.poster_path,
+        poster_path: eachData.poster_path,
       }))
+      console.log(updatedData)
       onSearch(updatedData)
     }
   }
