@@ -4,18 +4,16 @@ import './index.css'
 const MoviePoster = props => {
   const {eachMovie} = props
   const baseUrlForPoster = 'https://image.tmdb.org/t/p/w500'
-  const posterImageUrl = `${baseUrlForPoster}${eachMovie.poster_path}`
+  const posterImageUrl = eachMovie.poster_path
+    ? `${baseUrlForPoster}${eachMovie.poster_path}`
+    : 'https://via.placeholder.com/500x750?text=No+Poster'
 
   return (
-    <li className="poster-item">
+    <div className="movies-container">
       <img
         src={posterImageUrl}
         alt={`${eachMovie.title} poster`}
         className="poster-image"
-        onError={e => {
-          e.target.onerror = null
-          e.target.src = 'https://via.placeholder.com/500x750?text=No+Poster'
-        }}
       />
       <h1 className="movie-name">{eachMovie.title}</h1>
       <p className="rating-text">Rating: {eachMovie.rating}</p>
@@ -24,8 +22,11 @@ const MoviePoster = props => {
           View Details
         </button>
       </Link>
-    </li>
+    </div>
   )
+}
+
+export default MoviePoster
 }
 
 export default MoviePoster
