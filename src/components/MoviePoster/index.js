@@ -27,6 +27,5 @@ const MoviePoster = props => {
 }
 
 export default MoviePoster
-}
 
 
