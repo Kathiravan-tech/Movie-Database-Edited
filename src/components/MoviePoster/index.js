@@ -29,5 +29,4 @@ const MoviePoster = props => {
 export default MoviePoster
 }
 
-export default MoviePoster
 
