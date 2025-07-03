@@ -19,11 +19,14 @@ class ViewDetails extends Component {
     const apiKey = '0548e4bb91a761217ee280f89244cfa8'
     const detailsApiUrl = `https://api.themoviedb.org/3/movie/${id}?api_key=${apiKey}&language=en-US`
     const castApiUrl = `https://api.themoviedb.org/3/movie/${id}/credits?api_key=${apiKey}&language=en-US`
-    const options = {
+    const options1 = {
       method: 'GET',
     }
-    const response1 = await fetch(detailsApiUrl, options)
-    const response2 = await fetch(castApiUrl, options)
+    const options2 = {
+      method: 'GET',
+    }
+    const response1 = await fetch(detailsApiUrl, options1)
+    const response2 = await fetch(castApiUrl, options2)
     if (response1.ok && response2.ok) {
       const fetchedData1 = await response1.json()
       const fetchedData2 = await response2.json()

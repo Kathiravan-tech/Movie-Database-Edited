@@ -22,7 +22,6 @@ class TopRatedMovies extends Component {
     if (response.ok) {
       const fetchedData = await response.json()
       const updatedData = fetchedData.results.map(eachData => ({
-        movieImage: eachData.backdrop_path,
         id: eachData.id,
         title: eachData.title,
         overview: eachData.overview,
@@ -50,8 +49,8 @@ class TopRatedMovies extends Component {
     const {moviesList} = this.state
     return (
       <div className="bottom-container">
-        <h1 className="heading-text">Popular Movies</h1>
-        <ul className="popular-list-container">
+        <h1 className="heading-text">TopRated Movies</h1>
+        <ul className="top-rated-list-container">
           {moviesList.map(eachMovie => (
             <MoviePoster eachMovie={eachMovie} key={eachMovie.id} />
           ))}
