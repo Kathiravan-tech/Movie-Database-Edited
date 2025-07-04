@@ -8,28 +8,24 @@ class ViewDetails extends Component {
   state = {movieDetails: {genres: []}, castDetailsList: [], isLoading: false}
 
   componentDidMount() {
-    this.getDetails()
+    this.getMovieDetails()
+    this.getCastDetails()
   }
 
-  getDetails = async () => {
+  getMovieDetails = async () => {
     this.setState({isLoading: true})
     const {match} = this.props
     const {params} = match
     const {id} = params
     const apiKey = '0548e4bb91a761217ee280f89244cfa8'
     const detailsApiUrl = `https://api.themoviedb.org/3/movie/${id}?api_key=${apiKey}&language=en-US`
-    const castApiUrl = `https://api.themoviedb.org/3/movie/${id}/credits?api_key=${apiKey}&language=en-US`
     const options1 = {
       method: 'GET',
     }
-    const options2 = {
-      method: 'GET',
-    }
     const response1 = await fetch(detailsApiUrl, options1)
-    const response2 = await fetch(castApiUrl, options2)
-    if (response1.ok && response2.ok) {
+    if (response1.ok) {
       const fetchedData1 = await response1.json()
-      const fetchedData2 = await response2.json()
+
       const updatedDetails = {
         name: fetchedData1.original_title,
         imageUrl: fetchedData1.poster_path,
@@ -40,17 +36,36 @@ class ViewDetails extends Component {
         overview: fetchedData1.overview,
         id: fetchedData1.id,
       }
+
+      this.setState({
+        movieDetails: updatedDetails,
+        isLoading: false,
+      })
+    }
+  }
+
+  getCastDetails = async () => {
+    const {match} = this.props
+    const {params} = match
+    const {id} = params
+    const apiKey = '0548e4bb91a761217ee280f89244cfa8'
+    const castApiUrl = `https://api.themoviedb.org/3/movie/${id}/credits?api_key=${apiKey}&language=en-US`
+
+    const options2 = {
+      method: 'GET',
+    }
+
+    const response2 = await fetch(castApiUrl, options2)
+
+    if (response2.ok) {
+      const fetchedData2 = await response2.json()
       const updatedCastList = fetchedData2.cast.map(eachCast => ({
         imageUrl: eachCast.profile_path,
         name: eachCast.original_name,
         characterName: eachCast.character,
         id: eachCast.id,
       }))
-      this.setState({
-        movieDetails: updatedDetails,
-        castDetailsList: updatedCastList,
-        isLoading: false,
-      })
+      this.setState({castDetailsList: updatedCastList})
     }
   }
 
